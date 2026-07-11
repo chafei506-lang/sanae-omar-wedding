@@ -1,0 +1,14 @@
+# Ignore high-resolution original images to keep the repository lightweight
+# and prevent pushing gigabytes of media files to GitHub.
+media/originals/
+
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+media/videos/
+*.mp4
+*.mov
+*.avi

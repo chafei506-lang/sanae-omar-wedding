@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Sanae & Omar - 27.12.2025</title>
+    <meta name="description"
+        content="Revivez notre plus beau jour en photos et vidéos. Retrouvez tous les souvenirs partagés de notre union.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sanaa & Omar - 27.12.2025">
+    <meta property="og:description"
+        content="Revivez notre plus beau jour en photos et vidéos. Retrouvez tous les souvenirs partagés de notre union.">
+    <!-- PLACEHOLDER FOR FINAL HOSTING URL (e.g. https://sanaae-omar-mariage.netlify.app/) -->
+    <meta property="og:url" content="https://sanaa-omar.com/">
+    <!-- PLACEHOLDER FOR PREVIEW IMAGE (Replace with 1200x630px photo from originals, e.g. media/originals/photos-retouchees/Prestige.photo00001.jpg) -->
+    <meta property="og:image"
+        content="https://sanaa-omar.com/media/originals/photos-retouchees/Prestige.photo00001.jpg">
+    <meta property="og:site_name" content="Sanaa & Omar - 27.12.2025">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sanaa & Omar - 27.12.2025">
+    <meta name="twitter:description"
+        content="Revivez notre plus beau jour en photos et vidéos. Retrouvez tous les souvenirs partagés de notre union.">
+    <meta name="twitter:image"
+        content="https://sanaa-omar.com/media/originals/photos-retouchees/Prestige.photo00001.jpg">
+
+    <!-- Favicon (Gold Vector Heart Icon) -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C5A059'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Music Audio Element -->
+    <audio id="bg-music" loop preload="none">
+        <source src="media/music.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">S & O</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#story" class="nav-link">Notre Histoire</a>
+                <a href="#gallery" class="nav-link">Galerie Photos</a>
+                <a href="#videos" class="nav-link">Vidéos</a>
+                <a href="#details" class="nav-link">Informations</a>
+                <a href="#" class="nav-link" id="nav-share">Partager</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-pretitle">Bienvenue au Mariage de</span>
+            <h1 class="hero-title">Sanaa & Omar</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-date">27 Décembre 2025</p>
+            <p class="hero-tagline">Une journée d'amour, de rires et d'éternité</p>
+
+            <!-- Running Counter -->
+            <div class="counter-container" id="marriage-counter">
+                <div class="counter-intro">Mariés depuis :</div>
+                <div class="counter-grid">
+                    <div class="counter-item">
+                        <span class="counter-val" id="count-days">00</span>
+                        <span class="counter-label">Jours</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-val" id="count-hours">00</span>
+                        <span class="counter-label">Heures</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-val" id="count-minutes">00</span>
+                        <span class="counter-label">Min</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-val" id="count-seconds">00</span>
+                        <span class="counter-label">Sec</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#story" class="scroll-down-btn" aria-label="Défiler vers le bas">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Our Story Section -->
+    <section class="story-section section-padding" id="story">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Notre Histoire</span>
+                <h2 class="section-title">Sanaa & Omar</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-text-container animate-on-scroll">
+                    <div class="story-quote">
+                        "L'amour n'est pas de se regarder l'un l'autre, mais de regarder ensemble dans la même
+                        direction."
+                    </div>
+                    <div class="story-paragraphs" id="story-content">
+                        <!-- Editable via config in script.js -->
+                        <p>Le 27 décembre 2025 reste à jamais gravé dans nos cœurs. C'est le jour où nous avons choisi
+                            de lier nos destins et de commencer la plus belle des aventures à deux.</p>
+                        <p>Cette journée a été magique grâce à votre présence, vos sourires et votre bienveillance. Nous
+                            avons créé ce site pour partager avec vous toutes ces émotions capturées en images et en
+                            vidéos, afin que ces souvenirs restent vivants à jamais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section section-padding" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Merveilleux Souvenirs</span>
+                <h2 class="section-title">Galerie Photos</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- Tab Switcher / Segmented Control -->
+            <div class="gallery-tabs-container">
+                <div class="gallery-tabs" id="gallery-tabs">
+                    <button class="tab-btn active" data-category="retouchees" id="tab-retouchees">
+                        Photos Retouchées <span class="photo-count" id="count-retouchees">(0)</span>
+                    </button>
+                    <button class="tab-btn" data-category="invitees" id="tab-invitees">
+                        Photos des Invités <span class="photo-count" id="count-invitees">(0)</span>
+                    </button>
+                    <button class="tab-btn" data-category="normales" id="tab-normales">
+                        Photos <span class="photo-count" id="count-normales">(0)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Photos Grid Container -->
+            <div class="gallery-grid-wrapper">
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Dynamic Items Populated by script.js -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button id="btn-load-more" class="btn-load-more hidden">Voir plus de photos</button>
+                </div>
+
+                <!-- Fallback/No-Media Placeholder -->
+                <div class="no-photos-message" id="no-photos-message" style="display: none;">
+                    <div class="placeholder-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48">
+                            <path fill="currentColor"
+                                d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z" />
+                        </svg>
+                    </div>
+                    <h3>Aucune photo dans cette catégorie</h3>
+                    <p>Pour ajouter des photos, placez vos fichiers dans le dossier correspondant sous <code
+                            class="code-highlight">./media/</code> et mettez à jour la liste dans <code
+                            class="code-highlight">script.js</code>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos-section section-padding" id="videos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Instants Capturés</span>
+                <h2 class="section-title">Vidéos du Mariage</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="videos-grid">
+                <!-- Video 1: Best Of (Local highlight reel) -->
+                <div class="video-card animate-on-scroll">
+                    <div class="video-card-header">
+                        <h3>Best of 27-12-25</h3>
+                        <span class="video-badge">Rétrospective</span>
+                    </div>
+                    <div class="video-wrapper">
+                        <!-- Custom HTML5 Video Player Container -->
+                        <div class="video-player-container" id="local-video-container">
+                            <video id="highlight-video" poster="media/videos/poster_bestof.jpg" preload="metadata">
+                                <source src="media/videos/best_of.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+                            </video>
+
+                            <!-- Custom Controls overlay before playing -->
+                            <div class="video-overlay-play" id="video-play-overlay">
+                                <button class="play-btn-circle" aria-label="Lire la vidéo">
+                                    <svg viewBox="0 0 24 24" width="40" height="40">
+                                        <path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                    </svg>
+                                </button>
+                                <span class="play-hint">Cliquez pour regarder le Best Of</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-card-body">
+                        <p>Revivez les moments forts de notre journée magique à travers cette courte vidéo rétrospective
+                            remplie de joie, d'émotions et de partage.</p>
+                    </div>
+                </div>
+
+                <!-- Video 2: Full Wedding Video Card -->
+                <div class="video-card animate-on-scroll" id="full-movie-card">
+                    <div class="video-card-header">
+                        <h3>Le Film Complet</h3>
+                        <span class="video-badge gold">Qualité Cinéma</span>
+                    </div>
+
+                    <div class="full-video-display-area" id="full-video-area">
+                        <!-- Standard fallback: elegant Card prompting user to link out.
+                             Will be replaced dynamically by an iframe if configured with YouTube/Vimeo embed. -->
+                        <div class="external-video-card" id="external-link-card">
+                            <div class="card-bg-overlay" style="background-image: url('media/videos/poster_full.jpg');">
+                            </div>
+                            <div class="external-card-content">
+                                <div class="cinema-icon">
+                                    <svg viewBox="0 0 24 24" width="60" height="60">
+                                        <path fill="currentColor"
+                                            d="M18,4H6A3,3 0 0,0 3,7V17A3,3 0 0,0 6,20H18A3,3 0 0,0 21,17V7A3,3 0 0,0 18,4M17,13H15V11H17V13M17,9H15V7H17V9M13,17H11V15H13V17M13,13H11V11H13V13M13,9H11V7H13V9M9,13H7V11H9V13M9,9H7V7H9V9M17,17H7V15H17V17Z" />
+                                    </svg>
+                                </div>
+                                <h4>MARIAGE SANAA & OMAR 27.12.2025</h4>
+                                <p class="duration">Durée estimée : ~1h30m</p>
+                                <a href="#" target="_blank" class="btn btn-gold" id="btn-watch-full">
+                                    <svg viewBox="0 0 24 24" width="18" height="18"
+                                        style="margin-right: 8px; vertical-align: middle;">
+                                        <path fill="currentColor"
+                                            d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                    </svg>
+                                    Regarder le film complet
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card-body">
+                        <p>L'intégralité de la cérémonie et des festivités du 27.12.2025. Un film d'exception pour
+                            garder en mémoire chaque instant précieux de notre union.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details / Venue Section -->
+    <section class="details-section section-padding" id="details">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Où & Quand</span>
+                <h2 class="section-title">Le Jour J</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="details-grid">
+                <!-- Card: Reception -->
+                <div class="details-card animate-on-scroll">
+                    <div class="details-icon">
+                        <svg viewBox="0 0 24 24" width="36" height="36">
+                            <path fill="currentColor"
+                                d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,6V12L16.2,15.2L17,13.9L12.5,11.2V6H11Z" />
+                        </svg>
+                    </div>
+                    <h3>Réception</h3>
+                    <p class="time">27 Décembre 2025 à 18:00</p>
+                    <p class="venue-name" id="reception-venue-name">La Majorelle Salle de Fête</p>
+                    <p class="venue-address" id="reception-venue-address">Salé, Maroc</p>
+                    <a href="https://maps.app.goo.gl/EBWUiLxehn1ZxMuG8" target="_blank" class="btn-text"
+                        id="reception-maps-link">Voir sur la carte →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h2 class="footer-logo">Sanaa & Omar</h2>
+            <p class="footer-thankyou">Merci d'avoir partagé avec nous cette journée inoubliable.</p>
+            <button class="btn btn-gold" id="footer-share"
+                style="margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 24px; font-size: 0.8rem;">
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path fill="currentColor"
+                        d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.13,18.77 15.13,19A3,3 0 0,0 18.13,22A3,3 0 0,0 21.13,19A3,3 0 0,0 18.13,16.08Z" />
+                </svg>
+                Partager le site
+            </button>
+            <div class="footer-divider"></div>
+            <p class="footer-date">27.12.2025</p>
+            <p class="footer-credit">Créé avec amour pour célébrer notre union.</p>
+        </div>
+    </footer>
+
+    <!-- Background Music Toggle Float -->
+    <button class="music-toggle-btn" id="music-toggle" aria-label="Activer/Désactiver la musique de fond">
+        <!-- SVG Speaker Muted (Default) -->
+        <span class="music-icon icon-muted" id="music-icon-muted">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor"
+                    d="M12,4L9.91,6.09L12,8.18M19,12C19,14.3 17.6,16.27 15.6,17.18L17.1,18.68C19.5,17.28 21,14.82 21,12C21,7.66 18,4 14,3.23V5.29C16.89,6.03 19,8.77 19,12M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.5C15.58,18.04 14.83,18.46 14,18.7V20.76C15.38,20.45 16.63,19.78 17.68,18.93L20.73,22L22,20.73L4.27,3M12,4L9.91,6.09L12,8.18V4Z" />
+            </svg>
+        </span>
+        <!-- SVG Speaker Playing -->
+        <span class="music-icon icon-playing" id="music-icon-playing" style="display: none;">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor"
+                    d="M14,3.23V5.29C16.89,6.03 19,8.77 19,12C19,15.23 16.89,17.97 14,18.71V20.77C18,20 21,16.34 21,12C21,7.66 18,4 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+            </svg>
+        </span>
+    </button>
+
+    <!-- Custom Lightbox Gallery Overlay -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Fermer la galerie">&times;</button>
+
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Image précédente">
+            <svg viewBox="0 0 24 24" width="36" height="36">
+                <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+            </svg>
+        </button>
+
+        <div class="lightbox-content-wrapper">
+            <img src="" alt="" class="lightbox-image" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption">Description de la photo</div>
+        </div>
+
+        <!-- High-res Download Button -->
+        <a href="" download class="lightbox-download" id="lightbox-download"
+            title="Télécharger la photo en haute résolution">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+                <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+            </svg>
+            Télécharger HD
+        </a>
+
+        <button class="lightbox-next" id="lightbox-next" aria-label="Image suivante">
+            <svg viewBox="0 0 24 24" width="36" height="36">
+                <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg>
+        </button>
+
+        <div class="lightbox-counter" id="lightbox-counter">1 / 10</div>
+    </div>
+
+    <!-- Floating Share Button -->
+    <button class="share-toggle-btn" id="share-toggle" aria-label="Partager le site">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor"
+                d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.13,18.77 15.13,19A3,3 0 0,0 18.13,22A3,3 0 0,0 21.13,19A3,3 0 0,0 18.13,16.08Z" />
+        </svg>
+    </button>
+
+    <!-- Custom Share Modal Overlay -->
+    <div class="share-modal" id="share-modal" aria-hidden="true" role="dialog">
+        <div class="share-modal-content">
+            <button class="share-modal-close" id="share-modal-close" aria-label="Fermer">&times;</button>
+            <h3>Partager le site</h3>
+            <p>Envoyez le lien de notre site de mariage à vos proches :</p>
+
+            <div class="share-actions">
+                <!-- WhatsApp -->
+                <a href="" target="_blank" class="share-action-btn whatsapp-btn" id="share-wa">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zm0 1.8c2.17 0 4.2 1.03 5.73 2.56 1.53 1.53 2.56 3.56 2.56 5.73 0 4.47-3.64 8.11-8.11 8.11-1.42 0-2.82-.37-4.05-1.07l-.29-.17-3.13.82.83-3.05-.19-.3c-.77-1.23-1.18-2.66-1.18-4.14.01-4.47 3.65-8.11 8.12-8.11zm-2.4 3.7c-.16 0-.31.06-.44.17-.38.31-1.02 1.01-1.02 2.45 0 1.44.89 2.82 1.02 2.99.13.17 1.83 2.82 4.44 3.95.62.27 1.11.43 1.49.55.62.2 1.19.17 1.64.1.5-.08 1.54-.63 1.76-1.24.22-.61.22-1.13.16-1.24-.06-.11-.22-.17-.47-.3l-2.22-1.09c-.11-.06-.23-.03-.32.06l-.99 1.23c-.11.13-.23.16-.38.08-.34-.17-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.3-.02-.47.1-.59.11-.11.25-.3.38-.45.13-.15.17-.25.26-.42.09-.17.05-.32-.02-.45l-.99-2.38c-.08-.22-.19-.22-.32-.22z" />
+                    </svg>
+                    WhatsApp
+                </a>
+
+                <!-- Copy Link -->
+                <button class="share-action-btn copy-btn" id="share-copy">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+                    </svg>
+                    Copier
+                </button>
+
+                <!-- Facebook -->
+                <a href="" target="_blank" class="share-action-btn facebook-btn" id="share-fb">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.01 3.68 9.18 8.49 9.88v-7h-2.54V12h2.54V9.82c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v7c4.81-.7 8.49-4.87 8.49-9.88 0-5.5-4.46-9.96-9.96-9.96z" />
+                    </svg>
+                    Facebook
+                </a>
+
+                <!-- Email -->
+                <a href="" target="_blank" class="share-action-btn email-btn" id="share-email">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,6L12,11L4,6H20M20,18H4V8L12,13L20,8V18Z" />
+                    </svg>
+                    Email
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="share-toast" id="share-toast">Lien copié !</div>
+
+    <!-- Media Data List -->
+    <script src="media_list.js"></script>
+    <!-- Main JavaScript Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
