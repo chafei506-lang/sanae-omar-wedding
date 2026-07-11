@@ -1395,10 +1395,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Lightbox Download Button */
-.lightbox-download {
+/* Lightbox Action Buttons */
+.lightbox-actions-container {
     position: absolute;
     bottom: 24px;
     right: 32px;
+    display: flex;
+    gap: 12px;
+    z-index: 2010;
+}
+
+.lightbox-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--color-text-light);
@@ -1414,17 +1421,29 @@ h1, h2, h3, h4, h5, h6 {
     gap: 8px;
     transition: var(--transition-smooth);
     z-index: 2010;
+    cursor: pointer;
 }
 
-.lightbox-download:hover {
+.lightbox-btn:hover {
     background: var(--color-primary);
     border-color: var(--color-primary-light);
     color: var(--color-text-light);
 }
 
-/* Hide download on very small screens to avoid overlaps */
+.lightbox-btn.gold {
+    background: var(--color-primary);
+    border-color: var(--color-primary-light);
+    color: var(--color-text-light);
+}
+
+.lightbox-btn.gold:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary);
+}
+
+/* Adjust layout on small screens to avoid overlaps */
 @media (max-width: 768px) {
-    .lightbox-download {
+    .lightbox-actions-container {
         right: 50%;
         transform: translateX(50%);
         bottom: 70px;

@@ -26,6 +26,10 @@ const CONFIG = {
     musicPath: "media/music.mp3",
 
     // 4. PHOTOS CONFIGURATION
+    // Link to your external Google Drive folder containing all original high-resolution photos.
+    // If set, a gold "Album HD ↗" button will appear in the lightbox to download original print-quality photos.
+    EXTERNAL_HD_ALBUM_URL: "https://drive.google.com/drive/folders/your-shared-google-drive-album-link",
+
     // Choose how you want to add photos:
     // 
     // OPTION A (Easiest): Name your photos sequentially in the corresponding folders
@@ -528,11 +532,23 @@ function updateLightboxContent() {
         captionElement.textContent = photo.caption;
         counterElement.textContent = `${lightboxActiveIndex + 1} / ${activePhotosList.length}`;
 
-        // Update high-res download button link
+        // Update download button to point to the medium-res WebP (which exists in the repo)
         if (downloadElement) {
-            downloadElement.setAttribute("href", photo.original);
-            const filename = photo.original.split('/').pop();
+            downloadElement.setAttribute("href", photo.medium);
+            const filename = photo.medium.split('/').pop();
             downloadElement.setAttribute("download", filename);
+        }
+
+        // Configure full HD album Google Drive link if set
+        const albumLinkElement = document.getElementById("lightbox-album-link");
+        if (albumLinkElement) {
+            const albumUrl = CONFIG.EXTERNAL_HD_ALBUM_URL;
+            if (albumUrl && albumUrl !== "" && !albumUrl.includes("your-shared-google-drive-album-link")) {
+                albumLinkElement.setAttribute("href", albumUrl);
+                albumLinkElement.style.display = "flex";
+            } else {
+                albumLinkElement.style.display = "none";
+            }
         }
 
         imgElement.style.opacity = "1";
