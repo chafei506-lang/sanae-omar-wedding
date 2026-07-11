@@ -203,29 +203,16 @@
             </div>
 
             <div class="videos-grid">
-                <!-- Video 1: Best Of (Local highlight reel) -->
+                <!-- Video 1: Best Of (Google Drive embed) -->
                 <div class="video-card animate-on-scroll">
                     <div class="video-card-header">
                         <h3>Best of 27-12-25</h3>
                         <span class="video-badge">Rétrospective</span>
                     </div>
-                    <div class="video-wrapper">
-                        <!-- Custom HTML5 Video Player Container -->
-                        <div class="video-player-container" id="local-video-container">
-                            <video id="highlight-video" poster="media/videos/poster_bestof.jpg" preload="metadata">
-                                <source src="media/videos/best_of.mp4" type="video/mp4">
-                                Votre navigateur ne supporte pas la lecture de vidéos HTML5.
-                            </video>
-
-                            <!-- Custom Controls overlay before playing -->
-                            <div class="video-overlay-play" id="video-play-overlay">
-                                <button class="play-btn-circle" aria-label="Lire la vidéo">
-                                    <svg viewBox="0 0 24 24" width="40" height="40">
-                                        <path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
-                                    </svg>
-                                </button>
-                                <span class="play-hint">Cliquez pour regarder le Best Of</span>
-                            </div>
+                    <div class="video-wrapper" id="best-of-video-area">
+                        <!-- Will be dynamically populated by script.js with Google Drive iframe -->
+                        <div class="iframe-wrapper">
+                            <iframe src="" allow="autoplay" id="best-of-iframe" title="Best of 27-12-25"></iframe>
                         </div>
                     </div>
                     <div class="video-card-body">

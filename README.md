@@ -14,9 +14,7 @@ c:/Users/anass/Desktop/sanaa_3ars/
 │   ├── photos-retouchees/      <- Photos professionnelles retouchées
 │   ├── photos-invitees/        <- Photos prises sur le vif par vos invités
 │   ├── photos-normales/        <- Photos casual / traditionnelles
-│   └── videos/                 <- Vidéos (court teaser et poster images)
-│       ├── best_of.mp4         <- Court teaser / rétrospective (ex: 20-100 Mo)
-│       ├── poster_bestof.jpg   <- Image de couverture du Best Of
+│   └── videos/                 <- Vidéos (images de couverture)
 │       └── poster_full.jpg     <- Image de couverture du Film Complet
 ├── index.html                  <- Structure HTML
 ├── style.css                   <- Fichier de styles (CSS)
@@ -49,31 +47,36 @@ Pour optimiser le temps de chargement du site, les 974+ photos haute résolution
 
 ---
 
-## 📹 Gestion de la Grande Vidéo (32 Go)
+## 📹 Configuration des Vidéos (Google Drive, YouTube, Vimeo)
 
-Le film de mariage complet fait environ 32 Go. **Ne le placez jamais directement sur le site**, car sa taille bloquerait complètement le chargement de la page pour les visiteurs et dépasserait les capacités d'un hébergement web standard.
+Pour préserver la vitesse de chargement et éviter les blocages de taille de fichiers sur GitHub, les vidéos du mariage sont hébergées en ligne.
 
-### Étape 1 : Compresser le fichier (Optionnel mais recommandé)
-Si vous souhaitez réduire la taille pour faciliter l'envoi, utilisez le logiciel gratuit **HandBrake** (téléchargeable sur [handbrake.fr](https://handbrake.fr/)) :
-1. Ouvrez votre vidéo de 32 Go dans HandBrake.
-2. Choisissez le préréglage (Preset) **"Fast 1080p30"** ou **"Production Standard"**.
-3. Dans l'onglet **"Vidéo"**, assurez-vous que le codec est **H.264** et réglez la qualité constante (Constant Quality RF) autour de **22**.
-4. Cliquez sur **"Démarrer l'encodage"**. Le fichier final fera généralement entre 1 et 3 Go tout en conservant une qualité excellente.
+### 1. Le Teaser "Best Of"
+Pour intégrer la courte vidéo rétrospective :
+1. Déposez votre vidéo sur **Google Drive**.
+2. Faites un clic droit > **Partager** > modifiez l'accès général à **"Tous les utilisateurs disposant du lien"** en mode **Lecteur**.
+3. Récupérez le lien de partage standard (ex: `https://drive.google.com/file/d/ID_DE_VOTRE_FICHIER/view?usp=sharing`).
+4. Transformez ce lien en lien d'intégration (preview) en remplaçant la fin par `/preview`. Le format correct est :
+   `https://drive.google.com/file/d/ID_DE_VOTRE_FICHIER/preview`
+5. Collez ce lien dans `script.js` dans la variable `BEST_OF_VIDEO_URL` :
+   ```javascript
+   BEST_OF_VIDEO_URL: "https://drive.google.com/file/d/ID_DE_VOTRE_FICHIER/preview"
+   ```
 
-### Étape 2 : Héberger la vidéo en ligne gratuitement
-Uploadez votre vidéo compressée ou originale sur l'une de ces plateformes gratuites :
-*   **YouTube (Recommandé)** : Importez la vidéo et choisissez la visibilité **"Non répertoriée"** (Unlisted). De cette façon, seuls les visiteurs de votre site pourront la voir, elle ne sera pas publique sur votre chaîne ni dans les recherches YouTube.
-*   **Google Drive** : Déposez le fichier sur votre Drive, faites un clic droit > Partager > changez les droits pour **"Tous les utilisateurs disposant du lien peuvent lire"**.
-*   **Vimeo** : Importez la vidéo en mode privé ou mot de passe selon vos préférences.
+### 2. Le Film Complet (Grande Vidéo)
+Le film complet peut faire plusieurs gigaoctets. Suivez ces étapes pour le lier :
 
-### Étape 3 : Lier la vidéo au site
-Copiez le lien obtenu à l'étape 2 (ex: `https://www.youtube.com/watch?v=XXXXXX` ou `https://drive.google.com/drive/folders/XXXXXX`) et collez-le dans `script.js` au niveau de la variable `FULL_VIDEO_URL` :
+1. **Hébergez la vidéo en ligne gratuitement** :
+   *   **YouTube (Recommandé)** : Importez la vidéo et configurez la visibilité sur **"Non répertoriée"** (Unlisted). De cette façon, seuls les visiteurs de votre site de mariage pourront la visionner (elle ne sera pas publique sur votre chaîne ni dans les résultats de recherche).
+   *   **Google Drive** : Déposez le fichier complet sur votre Drive, configurez les droits pour que **"Tous les utilisateurs disposant du lien"** puissent la lire.
+   *   **Vimeo** : Importez la vidéo en mode d'accès restreint.
+2. **Liez la vidéo au site** :
+   Copiez le lien (ex: `https://www.youtube.com/watch?v=XXXXXX` ou le lien de votre dossier/fichier Google Drive) et collez-le dans `script.js` dans la variable `FULL_VIDEO_URL` :
+   ```javascript
+   FULL_VIDEO_URL: "PASTE_YOUR_LINK_HERE"
+   ```
 
-```javascript
-FULL_VIDEO_URL: "PASTE_YOUR_LINK_HERE"
-```
-
-*Le site est intelligent : s'il détecte un lien YouTube ou Vimeo, il intégrera directement le lecteur vidéo interactif (iframe) sur la page. S'il s'agit d'un lien Google Drive ou Cloud, il affichera un magnifique bouton renvoyant le visiteur vers le lien de téléchargement/lecture externe.*
+*Le site s'adapte automatiquement : s'il détecte un lien d'intégration YouTube ou Vimeo, il incrustera directement le lecteur vidéo interactif sur la page. S'il s'agit d'un lien Google Drive ou Cloud standard, il affichera un magnifique bouton de cinéma invitant à ouvrir le film dans un nouvel onglet.*
 
 ---
 

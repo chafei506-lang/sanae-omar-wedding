@@ -10,12 +10,16 @@ const CONFIG = {
     // 1. COUPLE DETAILS
     coupleNames: "Sanae & Omar",
     weddingDate: "2025-12-27T16:00:00", // ISO format (YYYY-MM-DDTHH:MM:SS) for time calculations
-    
+
     // 2. VIDEO LINKS
+    // Paste your Google Drive preview link for the short highlight reel here.
+    // Format: https://drive.google.com/file/d/FILE_ID/preview
+    BEST_OF_VIDEO_URL: "https://drive.google.com/file/d/1234567890abcdefghijklmnopqrstuv/preview",
+
     // Paste your external video URL here (e.g. YouTube unlisted link, Vimeo, or Google Drive)
     // - If you paste a YouTube or Vimeo link, it will automatically embed a player inline!
     // - If you paste a Google Drive, OneDrive, or Dropbox link, it will create an elegant click-to-watch cinema card.
-    FULL_VIDEO_URL: "https://drive.google.com/drive/folders/your-large-wedding-video-link", 
+    FULL_VIDEO_URL: "https://drive.google.com/drive/folders/your-large-wedding-video-link",
 
     // 3. BACKGROUND MUSIC
     // Add a music file (e.g. music.mp3) into media/ to enable the music toggle button.
@@ -112,7 +116,7 @@ function setupMarriageCounter() {
     const countHours = document.getElementById("count-hours");
     const countMinutes = document.getElementById("count-minutes");
     const countSeconds = document.getElementById("count-seconds");
-    
+
     if (!countDays || !countHours || !countMinutes || !countSeconds) return;
 
     const targetDate = new Date(CONFIG.weddingDate);
@@ -120,9 +124,9 @@ function setupMarriageCounter() {
     function updateCounter() {
         const now = new Date();
         const diffMs = now - targetDate;
-        
+
         let displayDiff = Math.abs(diffMs);
-        
+
         // Update header intro text based on timeline
         if (diffMs >= 0) {
             if (counterIntro) counterIntro.textContent = "Mariés depuis :";
@@ -165,7 +169,7 @@ function setupPhotoGallery() {
     const galleryGrid = document.getElementById("gallery-grid");
     const noPhotosMessage = document.getElementById("no-photos-message");
     const loadMoreBtn = document.getElementById("btn-load-more");
-    
+
     // Set counts in tabs
     updateCategoryCounts();
 
@@ -208,7 +212,7 @@ function setupPhotoGallery() {
 // Calculate total photos in categories dynamically
 function getCategoryPhotos(category) {
     let photos = [];
-    
+
     // Check if we have automatically scanned media lists from update_media.ps1 or generate_thumbs.py
     if (window.MEDIA_DATA) {
         let list = [];
@@ -219,7 +223,7 @@ function getCategoryPhotos(category) {
         } else if (category === "normales") {
             list = window.MEDIA_DATA.photosNormales || [];
         }
-        
+
         if (list.length > 0) {
             return list.map((photo, i) => {
                 // If it is already a structured object from generate_thumbs.py
@@ -238,7 +242,7 @@ function getCategoryPhotos(category) {
                         caption: caption
                     };
                 }
-                
+
                 // Fallback for old string registry (update_media.ps1 format)
                 const parts = photo.split('/');
                 const filename = parts[parts.length - 1];
@@ -253,12 +257,12 @@ function getCategoryPhotos(category) {
             });
         }
     }
-    
+
     // Fallback if media_list.js is missing or empty
     if (CONFIG.sequentialConfig.enabled) {
         let count = 0;
         let folder = "";
-        
+
         if (category === "retouchees") {
             count = CONFIG.sequentialConfig.retoucheesCount;
             folder = "media/photos-retouchees/";
@@ -269,7 +273,7 @@ function getCategoryPhotos(category) {
             count = CONFIG.sequentialConfig.normalesCount;
             folder = "media/photos-normales/";
         }
-        
+
         const ext = CONFIG.sequentialConfig.extension;
         for (let i = 1; i <= count; i++) {
             photos.push({
@@ -290,7 +294,7 @@ function getCategoryPhotos(category) {
             caption: photo.caption
         }));
     }
-    
+
     return photos;
 }
 
@@ -310,14 +314,14 @@ function loadPhotos(category, append = false) {
     const galleryGrid = document.getElementById("gallery-grid");
     const noPhotosMessage = document.getElementById("no-photos-message");
     const loadMoreBtn = document.getElementById("btn-load-more");
-    
+
     if (!galleryGrid) return;
-    
+
     if (!append) {
         galleryGrid.innerHTML = "";
         paginationState[category] = 1;
     }
-    
+
     const fullList = getCategoryPhotos(category);
 
     if (fullList.length === 0) {
@@ -342,7 +346,7 @@ function loadPhotos(category, append = false) {
         const item = document.createElement("div");
         item.className = "gallery-item animate-on-scroll";
         item.setAttribute("data-index", globalIndex);
-        
+
         // Show lightweight thumbnail WebP and lazy load
         item.innerHTML = `
             <img src="${photo.thumb}" alt="${photo.caption}" class="gallery-img" loading="lazy" onerror="handleImageError(this)">
@@ -374,7 +378,7 @@ function loadPhotos(category, append = false) {
         });
 
         galleryGrid.appendChild(item);
-        
+
         // Staggered animate transition
         setTimeout(() => {
             if (!img || img.complete) {
@@ -424,7 +428,7 @@ function setupLightbox() {
 
     // Close button click
     closeBtn.addEventListener("click", closeLightbox);
-    
+
     // Outside click close
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox || e.target.classList.contains("lightbox-content-wrapper")) {
@@ -476,7 +480,7 @@ function openLightbox(index) {
 
     lightboxActiveIndex = index;
     updateLightboxContent();
-    
+
     lightbox.classList.add("active");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden"; // Disable background scrolling
@@ -523,17 +527,17 @@ function updateLightboxContent() {
         imgElement.alt = photo.caption;
         captionElement.textContent = photo.caption;
         counterElement.textContent = `${lightboxActiveIndex + 1} / ${activePhotosList.length}`;
-        
+
         // Update high-res download button link
         if (downloadElement) {
             downloadElement.setAttribute("href", photo.original);
             const filename = photo.original.split('/').pop();
             downloadElement.setAttribute("download", filename);
         }
-        
+
         imgElement.style.opacity = "1";
         imgElement.style.transform = "scale(1)";
-        
+
         // Preload next/prev images in background cache
         preloadAdjacentImages();
     }, 150);
@@ -543,44 +547,20 @@ function preloadAdjacentImages() {
     if (activePhotosList.length <= 1) return;
     const nextIndex = (lightboxActiveIndex + 1) % activePhotosList.length;
     const prevIndex = (lightboxActiveIndex - 1 + activePhotosList.length) % activePhotosList.length;
-    
+
     const nextImg = new Image();
     nextImg.src = activePhotosList[nextIndex].medium;
-    
+
     const prevImg = new Image();
     prevImg.src = activePhotosList[prevIndex].medium;
 }
 
 // 5. VIDEO SECTION INTEGRATIONS
 function setupVideoSections() {
-    // Local Highlight Video Player Overlay Action
-    const playOverlay = document.getElementById("video-play-overlay");
-    const highlightVideo = document.getElementById("highlight-video");
-
-    if (highlightVideo) {
-        // If automatically scanned highlight video path exists
-        if (window.MEDIA_DATA && window.MEDIA_DATA.highlightVideo) {
-            const videoSource = highlightVideo.querySelector("source");
-            if (videoSource) {
-                videoSource.src = window.MEDIA_DATA.highlightVideo;
-                highlightVideo.load(); // Reload video tag with new source
-            }
-        }
-    }
-
-    if (playOverlay && highlightVideo) {
-        playOverlay.addEventListener("click", () => {
-            playOverlay.style.display = "none";
-            highlightVideo.setAttribute("controls", "true");
-            highlightVideo.play();
-        });
-        
-        // Show overlay again if video resets
-        highlightVideo.addEventListener("ended", () => {
-            playOverlay.style.display = "flex";
-            highlightVideo.removeAttribute("controls");
-            highlightVideo.load(); // Reloads metadata / poster
-        });
+    // Bind Best Of Google Drive preview link to the iframe source
+    const bestOfIframe = document.getElementById("best-of-iframe");
+    if (bestOfIframe) {
+        bestOfIframe.src = CONFIG.BEST_OF_VIDEO_URL;
     }
 
     // Full wedding video configuration mapping
@@ -590,7 +570,7 @@ function setupVideoSections() {
 function setupFullWeddingVideo() {
     const fullVideoArea = document.getElementById("full-video-area");
     const watchButton = document.getElementById("btn-watch-full");
-    
+
     if (!fullVideoArea) return;
 
     const url = CONFIG.FULL_VIDEO_URL;
@@ -636,7 +616,7 @@ function setupBackgroundMusic() {
     const toggleBtn = document.getElementById("music-toggle");
     const mutedIcon = document.getElementById("music-icon-muted");
     const playingIcon = document.getElementById("music-icon-playing");
-    
+
     if (!music || !toggleBtn) return;
 
     // Map source path
@@ -702,14 +682,14 @@ function setupShareFeatures() {
     const closeBtn = document.getElementById("share-modal-close");
     const copyBtn = document.getElementById("share-copy");
     const modal = document.getElementById("share-modal");
-    
+
     if (toggleBtn) toggleBtn.addEventListener("click", handleShare);
     if (navBtn) navBtn.addEventListener("click", handleShare);
     if (footerBtn) footerBtn.addEventListener("click", handleShare);
-    
+
     if (closeBtn) closeBtn.addEventListener("click", closeShareModal);
     if (copyBtn) copyBtn.addEventListener("click", copyWebsiteLink);
-    
+
     if (modal) {
         modal.addEventListener("click", (e) => {
             if (e.target === modal || e.target.classList.contains("share-modal-content")) {
@@ -721,13 +701,13 @@ function setupShareFeatures() {
 
 function handleShare(e) {
     if (e) e.preventDefault();
-    
+
     const shareData = {
         title: "Sanae & Omar - 27.12.2025",
         text: "Revivez le mariage de Sanae & Omar en photos et vidéos !",
         url: window.location.href
     };
-    
+
     if (navigator.share) {
         navigator.share(shareData)
             .catch(err => console.log('Error sharing:', err));
@@ -739,18 +719,18 @@ function handleShare(e) {
 function openShareModal() {
     const modal = document.getElementById("share-modal");
     if (!modal) return;
-    
+
     const currentUrl = encodeURIComponent(window.location.href);
     const text = encodeURIComponent("Revivez le mariage de Sanae & Omar - 27.12.2025 en photos et vidéos ! ");
-    
+
     const waBtn = document.getElementById("share-wa");
     const fbBtn = document.getElementById("share-fb");
     const emailBtn = document.getElementById("share-email");
-    
+
     if (waBtn) waBtn.href = `https://wa.me/?text=${text}${currentUrl}`;
     if (fbBtn) fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
     if (emailBtn) emailBtn.href = `mailto:?subject=Mariage%20Sanae%20%26%20Omar&body=${text}%0A${currentUrl}`;
-    
+
     modal.classList.add("active");
     modal.setAttribute("aria-hidden", "false");
 }
